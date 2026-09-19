@@ -1,5 +1,6 @@
 package miniexchange;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
 import org.junit.jupiter.api.Test;
 
 
@@ -83,9 +84,9 @@ public class TestOrderBook {
         book.addOrder(order2);
         book.addOrder(order3);
 
-        assertEquals(2,book.getBuyOrders().get(0).getOrderId());
-        assertEquals(1,book.getBuyOrders().get(1).getOrderId());
-        assertEquals(3,book.getBuyOrders().get(2).getOrderId());
+        assertSame(order2,book.getBuyOrders().get(0));
+        assertSame(order1,book.getBuyOrders().get(1));
+        assertSame(order3,book.getBuyOrders().get(2));
     }
 
 }
